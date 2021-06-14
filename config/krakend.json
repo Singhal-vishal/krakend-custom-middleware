@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "port": 9001,
+  "extra_config": {
+    "github_com/devopsfaith/krakend-cors": {
+      "allow_origins": [
+        "*"
+      ]
+    }
+  },
+  "endpoints": [
+    {
+      "endpoint": "/todos/{id}",
+      "backend": {
+        "host": [
+          "https://jsonplaceholder.typicode.com"
+        ],
+        "url_pattern": "/todos/{id}"
+      }
+    }
+  ]
+}
