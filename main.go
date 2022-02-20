@@ -2,15 +2,19 @@ package main
 
 import (
 	"context"
-	krakend2 "github.com/devopsfaith/krakend-ce/krakend"
-	"github.com/devopsfaith/krakend-cobra"
-	flexibleconfig "github.com/devopsfaith/krakend-flexibleconfig"
-	"github.com/devopsfaith/krakend-viper"
-	"github.com/devopsfaith/krakend/config"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
+
+	cmd "github.com/devopsfaith/krakend-cobra"
+	flexibleconfig "github.com/devopsfaith/krakend-flexibleconfig"
+	viper "github.com/devopsfaith/krakend-viper"
+	"github.com/devopsfaith/krakend/config"
+	"github.com/gin-gonic/gin"
+
+	"krakend-custom-middleware/internal/middlewares"
+	"krakend-custom-middleware/krakend"
 )
 
 const (
@@ -35,7 +39,7 @@ func main() {
 		case <-ctx.Done():
 		}
 	}()
-	
+
 	var cfg config.Parser
 	cfg = viper.New()
 	if os.Getenv(fcEnable) != "" {
@@ -48,7 +52,15 @@ func main() {
 		})
 	}
 
-	cmd.Execute(cfg, krakend2.NewExecutor(ctx))
-	
+	rakv := middlewares.InitApiKeyValidationMiddleware()
+
+	eb := krakend.ExecutorBuilder{
+		Middlewares: []gin.HandlerFunc{
+			rakv.Apply,
+		},
+	}
+
+	cmd.Execute(cfg, eb.NewCmdExecutor(ctx))
+
 	log.Println("started KrakeD")
 }

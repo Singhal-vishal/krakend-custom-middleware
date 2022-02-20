@@ -420,6 +420,7 @@ github.com/devopsfaith/krakend-amqp v1.4.0 h1:EwcE4AAHExOE2Zd0xLKikTeo80EBGcMxUL
 github.com/devopsfaith/krakend-amqp v1.4.0/go.mod h1:v1XXA3f3XCc3MBybO6V6E6WEVjUlCXJcEAl8uG9Zy2Q=
 github.com/devopsfaith/krakend-botdetector v1.4.0 h1:G9My+bqdyaFs5J2Pcw7ZFn2yUOojBO3Dae09MSelynY=
 github.com/devopsfaith/krakend-botdetector v1.4.0/go.mod h1:oorELewJDBerwrxhCQVqPOoy7g4v7cNSnBtAAY684FU=
+github.com/devopsfaith/krakend-ce v1.4.1 h1:/6pusEx3QkO2Qy7CZDqULOssBNPWFhHcpLhlDyzK4wk=
 github.com/devopsfaith/krakend-cel v1.4.0 h1:/koXu26T7NF5Nyy4wY0iuMDswtjmMxnbLCObyC9bR1I=
 github.com/devopsfaith/krakend-cel v1.4.0/go.mod h1:eyf1vzTMw7b3+5HlS4EwmfIN8jNkciC7OEBHs0/uqQA=
 github.com/devopsfaith/krakend-circuitbreaker v0.0.0-20200703180246-3ea7a4c22c3b h1:QIalyRGLmZE2nRNy5ZE57HXOxMM41viJotcCXyaJvdY=
